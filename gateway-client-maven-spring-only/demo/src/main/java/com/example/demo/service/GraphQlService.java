@@ -41,6 +41,7 @@ public class GraphQlService {
                 }
         """;
 
+        /** Match whole response path = "" */
         return graphQlClient.document(document)
                 .retrieve("").toEntity(ClientsResponse.class);
     }
