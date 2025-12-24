@@ -1,0 +1,49 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.8'
+	id 'io.spring.dependency-management' version '1.1.7'
+	id 'com.netflix.dgs.codegen' version '7.0.3'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('netflixDgsVersion', "10.4.0")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'com.netflix.graphql.dgs:graphql-dgs-spring-graphql-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.netflix.graphql.dgs:graphql-dgs-spring-graphql-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:${netflixDgsVersion}"
+	}
+}
+
+generateJava {
+	schemaPaths = ["${projectDir}/src/main/resources/graphql-client"]
+	packageName = 'com.example.gateway_client.codegen'
+	generateClient = true
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
