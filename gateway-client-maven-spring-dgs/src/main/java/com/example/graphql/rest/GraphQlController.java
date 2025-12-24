@@ -7,15 +7,12 @@ import com.netflix.graphql.dgs.client.codegen.GraphQLMultiQueryRequest;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest;
 import com.tomask.graphql.core.generated.client.ClientGraphQLQuery;
 import com.tomask.graphql.core.generated.client.ClientProjectionRoot;
-import com.tomask.graphql.core.generated.types.Client;
-import org.springframework.graphql.client.ClientGraphQlResponse;
 import org.springframework.graphql.client.DgsGraphQlClient;
 import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
