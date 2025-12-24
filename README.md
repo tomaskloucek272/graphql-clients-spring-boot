@@ -1,4 +1,4 @@
-# Spring GraphQL Client Implementations (DGS & Native)
+# Spring GraphQL Sample Clients (DGS & Native)
 
 Repository contains Spring Boot based graphql clients created as:
 
@@ -18,6 +18,28 @@ Repository contains Spring Boot based graphql clients created as:
 <img width="48" height="48" alt="image" src="https://github.com/user-attachments/assets/694779c3-2ca3-45ce-bfa7-6801d34ec68f" />
 
 [Spring GraphQL](https://docs.spring.io/spring-graphql/reference/client.html)
+
+All three samples aims to demonstrate howto **send two aliased queries in one GraphQl request** 
+
+```
+{
+   client1: client(id: "1") {
+      id
+      name
+      orders {
+         total
+      }
+   }
+   client2: client(id: "2") {
+      id
+      name
+      orders {
+         total
+      }
+   }
+}
+```
+
 
 
 
