@@ -1,6 +1,6 @@
 # Spring GraphQL Sample Clients (DGS & Native)
 
-Repository is a [follow up to](https://github.com/tomaskloucek272/graphql-federation) expecting mentioned gateway running at http://localhost:3000 
+This is a [follow up of this repository](https://github.com/tomaskloucek272/graphql-federation) and all samples are expecting mentioned NestJS gateway running at http://localhost:3000 
 and contains Spring Boot based graphql clients created with using:
 
 ## 1) Netflix DGS Gradle codegen plugin
@@ -42,7 +42,7 @@ All three samples aims to demonstrate howto **send two aliased queries in one Gr
 ```
 with output like in the third case:
 
-<img width="677" height="1660" alt="image" src="https://github.com/user-attachments/assets/2fdae1ad-2765-412a-959c-b6946c4c8048" />
+<img width="377" height="1360" alt="image" src="https://github.com/user-attachments/assets/2fdae1ad-2765-412a-959c-b6946c4c8048" />
 
 
 
