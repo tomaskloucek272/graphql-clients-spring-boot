@@ -1,5 +1,6 @@
 package com.example.graphql.rest;
 
+import com.example.graphql.dto.ClientResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.netflix.graphql.dgs.client.codegen.GraphQLMultiQueryRequest;
@@ -44,6 +45,11 @@ public class GraphQlController {
 
         var response = dgsClient.getGraphQlClient().document(request).executeSync();
 
-        return response.getData().toString();
+        /** return whole data */
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        var clientResponse = objectMapper.convertValue(response.getData(), ClientResponse.class);
+
+        return clientResponse.client1() + ", " + clientResponse.client2();
     }
 }
